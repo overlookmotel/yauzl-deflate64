@@ -70,7 +70,7 @@ describe('Stream emits error if uncompressed size', function() {
 function testSuccess(params, cb) {
 	const {openOptions, streamOptions, injectFn} = params || {};
 
-	getEntry(openOptions, (err, {zipFile, entry}) => {
+	getEntry(openOptions, (err, zipFile, entry) => {
 		if (err) return cb(err);
 
 		if (injectFn) injectFn(entry, zipFile);
@@ -94,7 +94,7 @@ function testSuccess(params, cb) {
 function testError(params, cb) {
 	const {openOptions, streamOptions, injectFn, expectFn} = params || {};
 
-	getEntry(openOptions, (err, {zipFile, entry}) => {
+	getEntry(openOptions, (err, zipFile, entry) => {
 		if (err) return cb(err);
 
 		if (injectFn) injectFn(entry, zipFile);
@@ -131,7 +131,7 @@ function getEntry(options, cb) {
 		zipFile.on('error', cb);
 
 		zipFile.on('entry', entry => {
-			cb(null, {zipFile, entry});
+			cb(null, zipFile, entry);
 		});
 
 		zipFile.readEntry();
