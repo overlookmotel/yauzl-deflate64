@@ -4,7 +4,7 @@ const fs = require('fs');
 const pathJoin = require('path').join;
 const yauzl = require('./lib/');
 
-const path = pathJoin(__dirname, 'test/test.zip');
+const path = pathJoin(__dirname, 'test/test bigger.zip');
 //const path = pathJoin(__dirname, 'unzipped with funzip.mov.zip');
 //const path = '/Cinebox/downloads/01660/unzipped/walkin%20the%20dog%20wip10b%20%28festival%20cut%29%201080%20dnxhd.zip';
 const pathOut = pathJoin(__dirname, 'out.mov');

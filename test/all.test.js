@@ -21,6 +21,11 @@ chai.config.includeStack = true;
 
 const PATH = pathJoin(__dirname, 'test.zip'),
 	BYTES = 220;
+	//BYTES = 2654417663; // test 500MB.zip
+
+it('Works normally', function(cb) {
+	testSuccess(null, cb);
+});
 
 it('Stream emits error if funzipPath invalid', function(cb) {
 	testError({
@@ -29,10 +34,6 @@ it('Stream emits error if funzipPath invalid', function(cb) {
 			expect(err.code).to.equal('ENOENT');
 		}
 	}, cb);
-});
-
-it('Works normally', function(cb) {
-	testSuccess(null, cb);
 });
 
 it('Stream emits error if CRC32 wrong', function(cb) {
